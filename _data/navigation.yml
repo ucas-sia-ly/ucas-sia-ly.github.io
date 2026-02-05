@@ -8,26 +8,15 @@
 #      Markdown formatted page while the second is generated using JSON.
 
 main:
+
+  - title: "About Me" # 对应图一的 About Me
+    url: /
+    
+  - title: "News"     # 如果你想点击跳转到特定位置，暂时可以先不加，或者指向主页
+    url: /#news       # 这里的 #news 是锚点
+    
+  - title: "Educations"
+    url: /#educations
+    
   - title: "Publications"
-    url: /publications/
-
-  - title: "Talks"
-    url: /talks/    
-
-  - title: "Teaching"
-    url: /teaching/    
-    
-  - title: "Portfolio"
-    url: /portfolio/
-        
-  - title: "Blog Posts"
-    url: /year-archive/
-    
-  - title: "CV"
-    url: /cv/
-    
-  # - title: "CV"
-  #   url: /cv-json/
-    
-  - title: "Guide"
-    url: /markdown/
+    url: /publications/ # 这里的链接对应你 _pages/publications.md 的 permalink
