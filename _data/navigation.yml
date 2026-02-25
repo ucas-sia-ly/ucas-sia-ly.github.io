@@ -1,0 +1,22 @@
+# The following is the order of the links in the header of the website.
+#
+# Changing the order here will adjust the order and you can also add additional
+# links. Removing a link prevents it from showing in the header, but does not
+# prevent it from being included in the site.
+#
+# NOTE that only one of the CV options should be selected, the first is for the
+#      Markdown formatted page while the second is generated using JSON.
+
+main:
+
+  - title: "About Me" # 对应图一的 About Me
+    url: /
+    
+  - title: "News"     # 如果你想点击跳转到特定位置，暂时可以先不加，或者指向主页
+    url: /#news       # 这里的 #news 是锚点
+    
+  - title: "Educations"
+    url: /#educations
+    
+  - title: "Publications"
+    url: /publications/ # 这里的链接对应你 _pages/publications.md 的 permalink
