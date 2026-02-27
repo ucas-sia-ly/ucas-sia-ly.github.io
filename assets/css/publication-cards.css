@@ -1,0 +1,202 @@
+/* ==========================================================================
+   Publication Card Styles - Premium Design
+   ========================================================================== */
+
+.publication-card {
+  margin-bottom: 2rem;
+  padding: 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.publication-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.publication-card:last-child {
+  margin-bottom: 0;
+}
+
+.publication-card-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  align-items: stretch;
+}
+
+/* Image Section with Venue Badge */
+.publication-card-image {
+  flex: 0 0 35%;
+  max-width: 35%;
+  min-width: 200px;
+  position: relative;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 1rem;
+}
+
+/* Venue Badge - Fancy tag style */
+.venue-badge {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+  padding: 0.4rem 0.9rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(30, 136, 229, 0.4);
+  z-index: 10;
+  letter-spacing: 0.5px;
+}
+
+.publication-card-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.publication-card-image:hover img {
+  transform: scale(1.02);
+}
+
+/* Content Section */
+.publication-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1.5rem 1.8rem;
+  background: #fff;
+}
+
+.publication-card-title {
+  font-size: 1.0rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem 0;
+  line-height: 1.5;
+}
+
+.publication-card-title a {
+  color: #1565c0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.publication-card-title a:hover {
+  color: #0d47a1;
+  text-decoration: underline;
+}
+
+.publication-card-authors {
+  font-size: 0.8rem;
+  color: #424242;
+  margin: 0 0 0.6rem 0;
+  line-height: 1.6;
+}
+
+.publication-card-project {
+  margin: 0.6rem 0;
+}
+
+.publication-card-project a {
+  display: inline-block;
+  color: #fff;
+  background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(30, 136, 229, 0.3);
+}
+
+.publication-card-project a:hover {
+  background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.4);
+  text-decoration: none;
+}
+
+.publication-card-highlights {
+  margin: 0.8rem 0 0 0;
+  padding-left: 1.2rem;
+  font-size: 0.88rem;
+  color: #555;
+  line-height: 1.9;
+}
+
+.publication-card-highlights li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.publication-card-highlights li::marker {
+  color: #1e88e5;
+}
+
+.publication-card-excerpt {
+  font-size: 0.88rem;
+  color: #555;
+  margin: 0.6rem 0 0 0;
+  line-height: 1.9;
+}
+
+.publication-card-abstract {
+  font-size: 0.8rem;
+  color: #444;
+  margin: 0.8rem 0 0 0;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 900px) {
+  .publication-card-container {
+    flex-direction: column;
+  }
+  
+  .publication-card-image {
+    flex: none;
+    max-width: 100%;
+    min-width: auto;
+    padding: 1rem;
+  }
+  
+  .publication-card-image img {
+    max-height: 300px;
+    object-fit: contain;
+  }
+  
+  .publication-card-content {
+    padding: 1rem 1.2rem 1.5rem;
+  }
+  
+  .venue-badge {
+    top: 0.6rem;
+    left: 0.6rem;
+  }
+}
+
+/* ==========================================================================
+   Publications Section
+   ========================================================================== */
+
+.publications-section {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.publication-card {
+  width: 100%;
+}

@@ -19,4 +19,4 @@ main:
     url: /#educations
     
   - title: "Publications"
-    url: /publications/ # 这里的链接对应你 _pages/publications.md 的 permalink
+    url: /#publications  # 锚点跳转到主页的 Publications 部分

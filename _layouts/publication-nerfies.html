@@ -1,0 +1,351 @@
+---
+layout: compress
+---
+
+<!DOCTYPE html>
+<html lang="{{ site.locale | slice: 0,2 | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | escape }}">
+  <meta name="keywords" content="{{ page.tags | join: ', ' }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} | {{ site.title }}</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Academicons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <style>
+    :root {
+      --primary-color: #5e72e4;
+      --text-color: #363636;
+      --link-color: #485fc7;
+    }
+    
+    body {
+      font-family: 'Noto Sans', sans-serif;
+    }
+    
+    .publication-title {
+      font-family: 'Google Sans', sans-serif;
+      font-weight: 600;
+    }
+    
+    .publication-authors {
+      font-family: 'Google Sans', sans-serif;
+    }
+    
+    .publication-authors a {
+      color: var(--link-color);
+    }
+    
+    .publication-authors a:hover {
+      text-decoration: underline;
+    }
+    
+    .author-block {
+      display: inline-block;
+    }
+    
+    .publication-venue {
+      color: #666;
+      font-style: italic;
+    }
+    
+    .publication-links {
+      margin-top: 1.5rem;
+    }
+    
+    .publication-links .button {
+      margin: 0.25rem;
+    }
+    
+    .teaser-image {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .content h2 {
+      font-family: 'Google Sans', sans-serif;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.5rem;
+      margin-top: 2rem;
+    }
+    
+    .bibtex-box {
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+    }
+    
+    .bibtex-box pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    
+    .hero.is-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .back-link {
+      margin-bottom: 1rem;
+    }
+    
+    .back-link a {
+      color: #666;
+    }
+    
+    .back-link a:hover {
+      color: var(--link-color);
+    }
+    
+    /* Abstract styling */
+    .abstract-content {
+      text-align: justify;
+      line-height: 1.8;
+    }
+    
+    /* Video container */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .video-container iframe,
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    /* Figure gallery */
+    .figure-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    
+    .figure-gallery img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    footer.footer {
+      background-color: #fafafa;
+      padding: 2rem 1.5rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          
+          <!-- Title -->
+          <h1 class="title is-1 publication-title">{{ page.title }}</h1>
+          
+          <!-- Authors -->
+          {% if page.authors %}
+          <div class="is-size-5 publication-authors">
+            {% for author in page.authors %}
+              <span class="author-block">
+                {% if author.url %}
+                  <a href="{{ author.url }}">{{ author.name }}</a>{% if author.affiliation %}<sup>{{ author.affiliation }}</sup>{% endif %}{% unless forloop.last %},{% endunless %}
+                {% else %}
+                  {{ author.name }}{% if author.affiliation %}<sup>{{ author.affiliation }}</sup>{% endif %}{% unless forloop.last %},{% endunless %}
+                {% endif %}
+              </span>
+            {% endfor %}
+          </div>
+          {% endif %}
+          
+          <!-- Affiliations -->
+          {% if page.affiliations %}
+          <div class="is-size-6 publication-authors" style="margin-top: 0.5rem;">
+            {% for aff in page.affiliations %}
+              <span class="author-block"><sup>{{ forloop.index }}</sup>{{ aff }}{% unless forloop.last %},{% endunless %}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+          
+          <!-- Venue -->
+          {% if page.venue %}
+          <div class="is-size-5 publication-venue" style="margin-top: 1rem;">
+            {{ page.venue }}{% if page.date %}, {{ page.date | date: "%Y" }}{% endif %}
+          </div>
+          {% endif %}
+          
+          <!-- Links -->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              {% if page.paperurl %}
+              <span class="link-block">
+                <a href="{{ page.paperurl }}" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              {% endif %}
+              
+              {% if page.arxiv %}
+              <span class="link-block">
+                <a href="{{ page.arxiv }}" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              {% endif %}
+              
+              {% if page.code %}
+              <span class="link-block">
+                <a href="{{ page.code }}" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              {% endif %}
+              
+              {% if page.slidesurl %}
+              <span class="link-block">
+                <a href="{{ page.slidesurl }}" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon"><i class="fas fa-file-powerpoint"></i></span>
+                  <span>Slides</span>
+                </a>
+              </span>
+              {% endif %}
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser Image -->
+{% if page.teaser %}
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+      <img src="{{ page.teaser | prepend: '/images/' | prepend: site.baseurl }}" alt="{{ page.title }}" class="teaser-image">
+      {% if page.teaser_caption %}
+      <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+        {{ page.teaser_caption }}
+      </h2>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Main Content -->
+<section class="section">
+  <div class="container is-max-desktop">
+    
+    <!-- Abstract -->
+    {% if page.abstract %}
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified abstract-content">
+          {{ page.abstract | markdownify }}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    
+    <!-- Video -->
+    {% if page.video_embed %}
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="video-container">
+          {{ page.video_embed }}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    
+    <!-- Main Content from markdown -->
+    {% if content != "" %}
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    
+    <!-- BibTeX -->
+    {% if page.bibtex %}
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">BibTeX</h2>
+        <div class="bibtex-box">
+          <pre><code>{{ page.bibtex }}</code></pre>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        <a href="{{ site.baseurl }}/">{{ site.author.name }}</a>
+      </p>
+      <p class="is-size-7">
+        Page template inspired by <a href="https://nerfies.github.io/" target="_blank">Nerfies</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Navbar burger toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    if ($navbarBurgers.length > 0) {
+      $navbarBurgers.forEach(el => {
+        el.addEventListener('click', () => {
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+        });
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
