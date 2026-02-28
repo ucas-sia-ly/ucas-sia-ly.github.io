@@ -5,16 +5,17 @@
 .publication-card {
   margin-bottom: 2rem;
   padding: 0;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.02);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .publication-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(102, 126, 234, 0.1);
 }
 
 .publication-card:last-child {
@@ -33,9 +34,11 @@
   flex: 0 0 35%;
   max-width: 35%;
   min-width: 200px;
+  min-height: 220px;
   position: relative;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0;
+  overflow: hidden;
 }
 
 /* Venue Badge - Fancy tag style */
@@ -47,26 +50,27 @@
   font-size: 0.8rem;
   font-weight: 700;
   color: #fff;
-  background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+  background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
   padding: 0.4rem 0.9rem;
   border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(30, 136, 229, 0.4);
+  box-shadow: 0 2px 12px rgba(0, 210, 255, 0.5);
   z-index: 10;
   letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
 }
 
 .publication-card-image img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: contain;
-  background: #fff;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: brightness(0.95);
 }
 
 .publication-card-image:hover img {
-  transform: scale(1.02);
+  transform: scale(1.08);
+  filter: brightness(1.05);
 }
 
 /* Content Section */
@@ -74,9 +78,9 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 1.5rem 1.8rem;
-  background: #fff;
+  justify-content: center;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(145deg, #ffffff 0%, #fafbfc 100%);
 }
 
 .publication-card-title {
@@ -87,14 +91,15 @@
 }
 
 .publication-card-title a {
-  color: #1565c0;
+  color: #667eea;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .publication-card-title a:hover {
-  color: #0d47a1;
-  text-decoration: underline;
+  color: #764ba2;
+  text-decoration: none;
+  text-shadow: 0 0 8px rgba(102, 126, 234, 0.3);
 }
 
 .publication-card-authors {
@@ -111,20 +116,20 @@
 .publication-card-project a {
   display: inline-block;
   color: #fff;
-  background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   text-decoration: none;
   font-weight: 600;
   font-size: 0.85rem;
-  padding: 0.4rem 1rem;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 6px rgba(30, 136, 229, 0.3);
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(102, 126, 234, 0.4);
 }
 
 .publication-card-project a:hover {
-  background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.4);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
   text-decoration: none;
 }
 
@@ -142,7 +147,7 @@
 }
 
 .publication-card-highlights li::marker {
-  color: #1e88e5;
+  color: #667eea;
 }
 
 .publication-card-excerpt {
@@ -170,16 +175,19 @@
     flex: none;
     max-width: 100%;
     min-width: auto;
-    padding: 1rem;
+    min-height: 200px;
+    padding: 0;
   }
   
   .publication-card-image img {
-    max-height: 300px;
-    object-fit: contain;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
   }
   
   .publication-card-content {
-    padding: 1rem 1.2rem 1.5rem;
+    padding: 1.2rem 1.5rem 1.5rem;
   }
   
   .venue-badge {

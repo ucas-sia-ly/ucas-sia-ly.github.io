@@ -1,26 +1,20 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your entire site, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# `jekyll serve -l -H localhost`. If you change this file, please restart the 
-# server process.
+# =============================================================================
+# Yang Luo 个人学术网站配置
+# 修改后需重启 Jekyll 服务生效
+# =============================================================================
 
-# Basic Site Settings
+# 基本网站设置
 locale                   : "en-US"
-site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
+site_theme               : "default"  # 可选主题: default, air, sunrise, mint, dirt, contrast
 title                    : "Yang Luo(罗阳)"
 title_separator          : "-"
 name                     : &name "Yang Luo(罗阳)"
-description              : &description "M.S. Student at Shenyang Institute of Automation (SIA), Chinese Academy of Sciences"   # Update this with a general description of your site, this is the default if not overridden by a page
-url                      : https://ucas-sia-ly.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
-                                                           # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
-baseurl                  : "" # the subpath of your site, e.g. "/blog"
+description              : &description "M.S. Student at Shenyang Institute of Automation (SIA), Chinese Academy of Sciences"
+url                      : https://ucas-sia-ly.github.io
+baseurl                  : ""
 repository               : "ucas-sia-ly/ucas-sia-ly.github.io"
 
-# Site Author - The following control what appear as part of the author content on the side bar.
-#               If a field is blank the icon and link will not appear, otherwise it will be shown.
-#               Additional customization can be done by editing /_includes/author-profile.html
+# 作者信息（侧边栏显示）
 author:
   name: "Yang Luo (罗阳)"
   avatar: "profile_duck.jpg"
@@ -31,81 +25,33 @@ author:
   cnblogs: "https://www.cnblogs.com/ucas-sia-ly"
   github: "ucas-sia-ly"
 
-# Publication Category - The following the list of publication categories and their headings
-# Publication Category - DISABLED (using flat list style now)
-# publication_category:
-#   books:
-#     title: 'Books'
-#   manuscripts:
-#     title: 'Journal Articles'    
-#   conferences:
-#     title: 'Conference Papers'
-
-# Site Settings
-teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
-breadcrumbs              : false # true, false (default)
+# 网站设置
+breadcrumbs              : false
 words_per_minute         : 160
 future                   : true
-read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
-talkmap_link             : false      #change to true to add link to talkmap on talks page
-comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
-  disqus:
-    shortname            :
-  discourse:
-    server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
-  facebook:
-    appid                :
-    num_posts            : # 5 (default)
-    colorscheme          : # "light" (default), "dark"
-staticman:
-  allowedFields          : ['name', 'email', 'url', 'message']
-  branch                 : "gh-pages" # "master", "gh-pages"
-  commitMessage          : "New comment."
-  filename               : comment-{@timestamp}
-  format                 : "yml"
-  moderation             : true
-  path                   : "_data/comments/{options.slug}"
-  requiredFields         : ['name', 'email', 'message']
-  transforms:
-    email                : "md5"
-  generatedFields:
-    date:
-      type               : "date"
-      options:
-        format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
+read_more                : "disabled"
 atom_feed:
-  hide                   : false     # change to true to hide the RSS feed in the footer
-  path                   : # blank (default) uses feed.xml
+  hide                   : false
+  path                   :
 
-# Social Sharing
-twitter:
-  username               : 
-facebook:
-  username               : 
-  app_id                 :
-  publisher              :
-og_image                 : 
+# SEO 设置
+og_image                 :
 og_description           : "Personal academic website of Yang Luo, M.S. Student at SIA, UCAS."
-# For specifying social profiles
-# - https://developers.google.com/structured-data/customize/social-profiles
 social:
   type                   : Person
   name                   : "Yang Luo"
-  links: 
+  links:
     - https://github.com/ucas-sia-ly
     - https://gitee.com/ucas-sia-ly
     - https://www.cnblogs.com/ucas-sia-ly
 
 
-# Analytics
+# Google Analytics（暂未启用）
 analytics:
-  provider               : "false" # 如果你暂时不统计流量，保持 false 即可；如果要开启，改成 "google-analytics-4"
-  google:
-    tracking_id          : "G-XXXXXXXXXX" # 如果开启了统计，在这里填入你申请的 ID
+  provider               : "false"
 
 
-# Reading Files
+# 文件包含/排除配置
 include:
   - .htaccess
   - _pages
@@ -144,15 +90,13 @@ encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 
-# Conversion
+# Markdown 处理
 markdown: kramdown
 highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
 
-
-# Markdown Processing
 kramdown:
   input: GFM
   hard_wrap: false
@@ -164,35 +108,15 @@ kramdown:
   enable_coderay: false
 
 
-# These settings control the types of collections used by the template
+# 集合配置（只启用论文）
 collections:
-  # teaching:
-  #   output: true
-  #   permalink: /:collection/:path/
   publications:
     output: true
     permalink: /:collection/:path/
-  # portfolio:
-  #   output: true
-  #   permalink: /:collection/:path/
-  # talks:
-  #   output: true
-  #   permalink: /:collection/:path/
 
 
-# These settings control how pages and collections are included in the site
+# 默认布局配置
 defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
   # _pages
   - scope:
       path: ""
@@ -200,15 +124,6 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # _teaching
-  - scope:
-      path: ""
-      type: teaching
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
   # _publications
   - scope:
       path: ""
@@ -216,41 +131,22 @@ defaults:
     values:
       layout: publication-nerfies
       author_profile: false
-      share: true
+      share: false
       comments: false
-  # _portfolio
-  - scope:
-      path: ""
-      type: portfolio
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comment: true
-  # _talks
-  - scope:
-      path: ""
-      type: talks
-    values:
-      layout: talk
-      author_profile: true
-      share: true
 
 
 # Sass/SCSS
 sass:
   sass_dir: _sass
-  style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+  style: compressed
 
 
-# Outputting
+# 输出配置
 permalink: /:categories/:title/
-# paginate: 5 # amount of posts to show
-# paginate_path: /page:num/
-timezone: Etc/UTC # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Etc/UTC
 
 
-# Plugins
+# Jekyll 插件
 plugins:
   - jekyll-feed
   - jekyll-gist
@@ -259,7 +155,7 @@ plugins:
   - jekyll-redirect-from
   - jemoji
 
-# Mimic GitHub Pages with --safe
+# Mimic GitHub Pages
 whitelist:
   - jekyll-feed
   - jekyll-gist
@@ -269,37 +165,15 @@ whitelist:
   - jemoji
 
 
-# Archives
-#  Type
-#  - GitHub Pages compatible archive pages built with Liquid ~> type: liquid (default)
-#  - Jekyll Archives plugin archive pages ~> type: jekyll-archives
-#  Path (examples)
-#  - Archive page should exist at path when using Liquid method or you can
-#    expect broken links (especially with breadcrumbs enabled)
-#  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
-#  - <base_path/categories/my-awesome-category/index.html ~> path: /categories/
-#  - <base_path/my-awesome-category/index.html ~> path: /
+# 归档配置
 category_archive:
   type: liquid
   path: /categories/
 tag_archive:
   type: liquid
   path: /tags/
-# https://github.com/jekyll/jekyll-archives
-# jekyll-archives:
-#   enabled:
-#     - categories
-#     - tags
-#   layouts:
-#     category: archive-taxonomy
-#     tag: archive-taxonomy
-#   permalinks:
-#     category: /categories/:name/
-#     tag: /tags/:name/
 
-
-# HTML Compression
-# - https://jch.penibelst.de/
+# HTML 压缩
 compress_html:
   clippings: all
   ignore:

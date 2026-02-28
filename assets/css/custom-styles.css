@@ -1,50 +1,83 @@
 /* ==========================================================================
-   Custom Global Styles - yaepiii-inspired
+   Custom Global Styles - Tech-inspired Design
    ========================================================================== */
+
+/* Root Variables for Tech Theme */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --accent-gradient: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+  --glow-color: rgba(102, 126, 234, 0.4);
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a4a6a;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+}
 
 /* Typography */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   font-size: 14px;
   line-height: 1.7;
-  color: #333;
+  color: var(--text-primary);
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #f0f4f8 100%);
+  min-height: 100vh;
 }
 
-/* Headings */
+/* Headings with subtle gradient effect */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  color: #222;
+  color: var(--text-primary);
   line-height: 1.4;
 }
 
 h1 {
   font-size: 1.8rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 h2 {
   font-size: 1.2rem;
-  margin-top: 1.2rem;
+  margin-top: 1.5rem;
   margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* Section headers with emoji have a glow effect */
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--accent-gradient);
+  border-radius: 2px;
 }
 
 h3 {
   font-size: 1.2rem;
 }
 
-/* Links */
+/* Links with hover effect */
 a {
-  color: #0066cc;
+  color: #667eea;
   text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 a:hover {
-  color: #004499;
-  text-decoration: underline;
+  color: #764ba2;
+  text-decoration: none;
+  text-shadow: 0 0 8px var(--glow-color);
 }
 
-/* Page content - ensure it doesn't overlap sidebar */
+/* Page content */
 .page__content {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   line-height: 1.8;
   overflow: visible;
 }
@@ -64,30 +97,76 @@ a:hover {
   top: 2rem;
 }
 
-/* Author profile sidebar */
+/* Author profile sidebar - Clean Circle Avatar */
+.author__avatar {
+  display: block !important;
+  overflow: visible !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.author__avatar img {
+  border-radius: 50% !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
+  transition: all 0.4s ease;
+  background: #fff;
+  max-width: 175px !important;
+}
+
+.author__avatar img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 30px rgba(102, 126, 234, 0.25);
+}
+
 .author__name {
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .author__bio {
   font-size: 0.85rem;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .author__urls {
   font-size: 0.85rem;
 }
 
-/* News section */
+.author__urls-wrapper a {
+  transition: all 0.3s ease;
+}
+
+.author__urls-wrapper a:hover {
+  color: #667eea !important;
+  transform: translateX(3px);
+}
+
+/* News section with fancy list */
 .page__content ul {
   padding-left: 1.2rem;
   margin-bottom: 1rem;
 }
 
 .page__content li {
-  margin-bottom: 0.4rem;
-  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+  padding: 0.3rem 0;
+  border-left: 2px solid transparent;
+  padding-left: 0.8rem;
+  margin-left: -1rem;
+  transition: all 0.3s ease;
+}
+
+.page__content li:hover {
+  border-left-color: #667eea;
+  background: linear-gradient(90deg, rgba(102, 126, 234, 0.05) 0%, transparent 100%);
 }
 
 /* Section headers with emoji */
@@ -103,18 +182,35 @@ a:hover {
   margin-top: 0;
 }
 
-/* Footer */
+/* Footer - 隐藏 */
 .page__footer {
-  font-size: 0.8rem;
+  display: none !important;
 }
 
-/* Masthead / Navigation */
+/* Masthead / Navigation - Tech Style */
 .masthead {
   font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
 }
 
 .masthead__menu-item {
   font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.masthead__menu-item:hover {
+  color: #667eea !important;
+}
+
+.greedy-nav a.site-title {
+  font-weight: 700;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Responsive adjustments */
@@ -133,41 +229,46 @@ a:hover {
 }
 
 /* ==========================================================================
-   Additional custom styles
+   Additional Tech-Style Enhancements
    ========================================================================== */
 
 /* Education list styling */
 .page__content > ul > li {
-  color: #333;
+  color: var(--text-primary);
 }
 
-/* Strong/bold text */
+/* Strong/bold text - highlighted */
 strong {
   font-weight: 600;
-  color: #d32f2f;
+  color: #e53935;
 }
 
 /* Improve readability of inline code */
 code {
   font-size: 0.85em;
-  background-color: #f5f5f5;
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
 }
 
 /* Publications section */
 .publications-section {
   width: 100%;
+  position: relative;
 }
 
-/* Force publication card layout - left image, right text */
+/* Publication card layout enhancements */
 .publication-card {
   margin-bottom: 2rem !important;
-  padding: 0 !important;
-  background: #fff !important;
-  border-radius: 12px !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
-  overflow: hidden !important;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid rgba(102, 126, 234, 0.08) !important;
+}
+
+.publication-card:hover {
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15) !important;
 }
 
 .publication-card-container {
@@ -181,25 +282,29 @@ code {
   flex: 0 0 35% !important;
   max-width: 35% !important;
   min-width: 200px !important;
+  min-height: 220px !important;
   position: relative !important;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
-  padding: 1rem !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  padding: 0 !important;
   display: block !important;
+  overflow: hidden !important;
 }
 
 .publication-card-image img {
   width: 100% !important;
-  height: auto !important;
-  border-radius: 8px !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
   display: block !important;
+  border-radius: 0 !important;
 }
 
 .publication-card-content {
   flex: 1 !important;
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-start !important;
-  padding: 1.5rem 1.8rem !important;
+  justify-content: center !important;
+  padding: 1.5rem 2rem !important;
 }
 
 .venue-badge {
@@ -207,13 +312,28 @@ code {
   top: 0.8rem !important;
   left: 0.8rem !important;
   display: inline-block !important;
-  font-size: 0.8rem !important;
+  font-size: 0.75rem !important;
   font-weight: 700 !important;
   color: #fff !important;
-  background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%) !important;
+  background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%) !important;
   padding: 0.4rem 0.9rem !important;
-  border-radius: 4px !important;
+  border-radius: 6px !important;
   z-index: 10 !important;
+  box-shadow: 0 2px 12px rgba(0, 210, 255, 0.5) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Publication title link styling */
+.publication-card-title a {
+  color: #667eea !important;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.publication-card-title a:hover {
+  color: #764ba2 !important;
+  text-shadow: 0 0 8px rgba(102, 126, 234, 0.3);
 }
 
 /* Remove right padding from page */
@@ -221,4 +341,32 @@ code {
   .page {
     padding-right: 0 !important;
   }
+}
+
+/* ==========================================================================
+   Animated Background Effect (subtle)
+   ========================================================================== */
+.page__content::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at 20% 80%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(102, 126, 234, 0.3);
+  color: #1a1a2e;
 }
