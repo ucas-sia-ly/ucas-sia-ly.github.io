@@ -17,6 +17,7 @@ My name is Yang Luo. I received my B.S. degree in Mechanical Engineering from Ce
 {: #educations}
 * *2025.09 - present*, Master, The State Key Laboratory of Robotics at Shenyang Institute of Automation, Chinese Academy of Sciences, Shenyang, China.
 * *2021.09 - 2025.06*, Undergraduate, Department of Mechanical Engineering, Central South University, Changsha, China.
+* *2018.09 - 2021.06*, Sichuan Mianyang High School, Mianyang, China.
 
 ## 📝 Publications
 {: #publications}
